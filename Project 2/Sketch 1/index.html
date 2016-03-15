@@ -1,0 +1,25 @@
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="text">Professor Williams will explore the relationship between technology, law, and liberalism in America's approach to warfare and how this national style stacks up against current and future strategic challenges.</div>
+    <video autoplay="autoplay" muted loop> <source src="../Assets/subway.mp4"></video>
+</body>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script>
+        
+    var lastScrollTop = 0;
+    $(window).scroll(function(event){
+       var st = $(this).scrollTop();
+       if (st > lastScrollTop){
+          $( ".text" ).css( "color", "green");
+       } else {
+         $( ".text" ).css( "color", "white" );
+       }
+       lastScrollTop = st;
+    });
+
+</script>

@@ -1,0 +1,28 @@
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+	<div class="text">The American Way of Warfare</div>
+	<div class="flex-container">
+	      <div class="column one"><div class="block a">ONE</div><div class="block b">TWO</div><div class="block c">THREE</div>
+	      </div>
+	      <div class="column two"><div class="block b">FIVE</div><div class="block c"></div><div class="block a">SEVEN</div>
+	      </div>
+	      <div class="column three"><div class="block c">Eight</div><div class="block a">NINE</div><div class="block b">TEN</div>
+	      </div>
+	</div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script>
+
+      $('.block').click(function () {
+        $('body').toggleClass('invert');
+    });
+
+
+
+</script>
