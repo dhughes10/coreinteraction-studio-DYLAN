@@ -3,23 +3,20 @@
 </head>
 
 <body>
-    <div class="text">Professor Williams will explore the relationship between technology, law, and liberalism in America's approach to warfare and how this national style stacks up against current and future strategic challenges.</div>
-    <video autoplay="autoplay" muted loop> <source src="../Assets/subway.mp4"></video>
+	<div class="video-container">
+		<div class="block">The American Way of Warfare</div>
+	    <iframe src="https://www.youtube.com/embed/NZ-fMABWPnw?autoplay=1&loop=1&vq=hd1080&playlist=NZ-fMABWPnw&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
+	</div>
 </body>
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <script>
-        
-    var lastScrollTop = 0;
-    $(window).scroll(function(event){
-       var st = $(this).scrollTop();
-       if (st > lastScrollTop){
-          $( ".text" ).css( "color", "green");
-       } else {
-         $( ".text" ).css( "color", "white" );
-       }
-       lastScrollTop = st;
+
+      $('.block').click(function () {
+        $('body').toggleClass('invert');
     });
+
+
 
 </script>
