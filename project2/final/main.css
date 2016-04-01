@@ -11,6 +11,7 @@ body {
 .video-container iframe,
 .video-container object,
 .video-container embed {
+	-webkit-filter: grayscale(100%);
     position: absolute;
     top: 0;
     left: 0;
@@ -34,7 +35,7 @@ body {
 	text-transform: uppercase;
 	padding: 1vw;
 	background-color: blue, 0;
-	color: white;
+	color: black;
 	font-family: myFirstFont;
 	transition: all 0.8s ease;
 	z-index: 2;
@@ -71,12 +72,12 @@ body {
 	position: fixed;
 	font-family: myFirstFont;
 	padding: 2vw;
-	background-color: blue;
+	background-color: black;
 	color: black;
 	line-height: 1:1.1;
 	letter-spacing: 1.2px;
 	font-size: 4vw;
-	left: 38vw;
+	left: 37.8vw;
 	top: 2.5vw;
 	width: 23vw;
 	z-index: 1;
@@ -85,9 +86,9 @@ body {
 
 .info-block {
 	position: fixed;
-	background-color: blue;
+	background-color: blue, 0;
 	font-family: myFirstFont;
-	color: white;
+	color: black;
 	line-height: 1.3vw;
 	letter-spacing: 1.2px;
 	font-size: .96vw;
@@ -113,18 +114,22 @@ body {
 }
 
 #marked {
-	background-color: black;
-	color: black;
+	background-color: white;
+	color: white;
 	transition: all 0.3s ease;
 }
 
 #marked:hover {
-	background-color: blue;
+	background-color: black;
 	color: white;
+}
+.info-block:hover {
+	background-color: black;
 }
 
 .text-block:hover {
-	background-color: blue;
+	background-color: black;
+	color: white;
 }
 
 
