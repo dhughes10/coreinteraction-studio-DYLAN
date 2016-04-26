@@ -13,26 +13,10 @@
   </div>
 
   <div class="message-container"></div>
-
-	  <div class="color-input is-hidden">
-    <div class="color-options">
-      <div class="color-options-label">Click a color to send</div>
-      <a class="color-option blue"></a>
-      <a class="color-option red"></a>
-      <a class="color-option purple"></a>
-      <a class="color-option yellow"></a>
-      <a class="color-option cyan"></a>
-      <a class="color-option turquoise"></a>
-      <a class="color-option green"></a>
-      <a class="color-option navy"></a>
-      <a class="color-option fuchsia"></a>
-    </div>
-     </div>
-	
-<iframe frameBorder="0" src=""></iframe>
+  <iframe frameBorder="0" src=""></iframe>
 
 </body>
-
+<script src="mousetrap.min.js"></script>
  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="https://s3.amazonaws.com/ci-sp-2016/ci-chat.js"></script>
 <script id="jsbin-javascript">
@@ -50,41 +34,37 @@ $('.submit-button').click(function (e) {
 // Actually handle user input on our chat options
 // This is where we're tying particular values to 
 // colors in messages we send.
-$('.blue').click(function () {
-  sendMessage(0);
-});
+// var code = e.keyCode || e.which;
+//  if(code == 13) { 
+//  	sendMessage(0);
+//  }
+Mousetrap.bind(['a', 'e', 'j', '1'], 
+	function() { sendMessage(0); });
+Mousetrap.bind(['q', 'd', 'c', '5'], 
+	function() { sendMessage(1); });
+Mousetrap.bind(['z', 'c','3'], 
+	function() { sendMessage(2); });
+Mousetrap.bind(['w', 'r', '2'], 
+	function() { sendMessage(3); });
+Mousetrap.bind(['s', 'f', '8'], 
+	function() { sendMessage(4); });
+Mousetrap.bind(['x', 'v', '4'], 
+	function() { sendMessage(5); });
+Mousetrap.bind(['p', 't', '7'], 
+	function() { sendMessage(6); });
+Mousetrap.bind(['l', 'g', '0'], 
+	function() { sendMessage(7); });
+Mousetrap.bind([',', 'b', '6'], 
+	function() { sendMessage(8); });
+Mousetrap.bind(['o', 'y', '9'], 
+	function() { sendMessage(9); });
+Mousetrap.bind(['k', 'h', '['], 
+	function() { sendMessage(10); });
+Mousetrap.bind(['m', 'n', ','], 
+	function() { sendMessage(11); });
+Mousetrap.bind(['i', 'u', ']'], 
+	function() { sendMessage(12); });
 
-$('.red').click(function () {
-  sendMessage(1);
-});
-
-$('.purple').click(function () {
-  sendMessage(2);
-});
-
-$('.yellow').click(function () {
-  sendMessage(3);
-});
-
-$('.cyan').click(function () {
-  sendMessage(4);
-});
-
-$('.turquoise').click(function () {
-  sendMessage(5);
-});
-
-$('.green').click(function () {
-  sendMessage(6);
-});
-
-$('.navy').click(function () {
-  sendMessage(7);
-});
-
-$('.fuchsia').click(function () {
-  sendMessage(8);
-});
 
 // This is where the magic happens!!!
 // We use the Chat object's `sendMessage` function
@@ -133,7 +113,9 @@ $(message).css({
     'left':posx+'px',
     'top':posy+'px',
     'display':'none'
-}).appendTo( 'body' ).fadeIn(100);
+}).appendTo( 'body' ).fadeIn(80);
+
+$(message).delay( 10000 ).fadeOut(2000);
 
 
   // Here's where we assign the color class. We use the
@@ -177,10 +159,22 @@ Chat.onUserCountChange(function (currentCount) {
   $('body').css({
     backgroundColor: 'hsl(0,0%,' + lightness + '%)'
   });
+  var sites = [
+	'http://fontsinuse.com/typefaces/57/graphik',
+	'http://www.w3schools.com/jquery/eff_fadeout.asp',
+	];
 
-$('iframe').attr('src','http://fontsinuse.com/typefaces/57/graphik')
-  });
+	var changeSite = function() {
+		var url = sites[Math.floor(Math.random() * sites.length)];
+		$('iframe').attr('src',url);
+}
+	window.setInterval(changeSite, 50000);
+		 });
 
 </script>
 
 </html>
+
+
+
+
