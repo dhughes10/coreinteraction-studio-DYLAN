@@ -1,5 +1,5 @@
 <html>
-<head>
+<head>	
   <link rel="stylesheet" href="main.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -20,8 +20,8 @@
  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="https://s3.amazonaws.com/ci-sp-2016/ci-chat.js"></script>
 <script id="jsbin-javascript">
-var username;
 
+var username;
 // When the user clicks the submit button, we want to save the 
 // username they entered, hide the form, and show the color input
 $('.submit-button').click(function (e) {
@@ -31,44 +31,39 @@ $('.submit-button').click(function (e) {
   $('.color-input').removeClass('is-hidden');
 });
 
-// Actually handle user input on our chat options
-// This is where we're tying particular values to 
-// colors in messages we send.
-// var code = e.keyCode || e.which;
-//  if(code == 13) { 
-//  	sendMessage(0);
-//  }
-Mousetrap.bind(['a', 'e', 'j', '1'], 
-	function() { sendMessage(0); });
-Mousetrap.bind(['q', 'd', 'c', '5'], 
-	function() { sendMessage(1); });
-Mousetrap.bind(['z', 'c','3'], 
-	function() { sendMessage(2); });
-Mousetrap.bind(['w', 'r', '2'], 
-	function() { sendMessage(3); });
-Mousetrap.bind(['s', 'f', '8'], 
-	function() { sendMessage(4); });
-Mousetrap.bind(['x', 'v', '4'], 
-	function() { sendMessage(5); });
-Mousetrap.bind(['p', 't', '7'], 
-	function() { sendMessage(6); });
-Mousetrap.bind(['l', 'g', '0'], 
-	function() { sendMessage(7); });
-Mousetrap.bind([',', 'b', '6'], 
-	function() { sendMessage(8); });
-Mousetrap.bind(['o', 'y', '9'], 
-	function() { sendMessage(9); });
-Mousetrap.bind(['k', 'h', '['], 
-	function() { sendMessage(10); });
-Mousetrap.bind(['m', 'n', ','], 
-	function() { sendMessage(11); });
-Mousetrap.bind(['i', 'u', ']'], 
-	function() { sendMessage(12); });
+
+	Mousetrap.bind(['a', 'e', 'j', '1'], 
+		function() { sendMessage(0); });
+	Mousetrap.bind(['q', 'd', 'c', '5'], 
+		function() { sendMessage(1); });
+	Mousetrap.bind(['z', 'c','3'], 
+		function() { sendMessage(2); });
+	Mousetrap.bind(['w', 'r', '2'], 
+		function() { sendMessage(3); });
+	Mousetrap.bind(['s', 'f', '8'], 
+		function() { sendMessage(4); });
+	Mousetrap.bind(['x', 'v', '4'], 
+		function() { sendMessage(5); });
+	Mousetrap.bind(['p', 't', '7'], 
+		function() { sendMessage(6); });
+	Mousetrap.bind(['l', 'g', '0'], 
+		function() { sendMessage(7); });
+	Mousetrap.bind([',', 'b', '6'], 
+		function() { sendMessage(8); });
+	Mousetrap.bind(['o', 'y', '9'], 
+		function() { sendMessage(9); });
+	Mousetrap.bind(['k', 'h', '['], 
+		function() { sendMessage(10); });
+	Mousetrap.bind(['m', 'n', ','], 
+		function() { sendMessage(11); });
+	Mousetrap.bind(['i', 'u', ']'], 
+		function() { sendMessage(12); });
 
 
 // This is where the magic happens!!!
 // We use the Chat object's `sendMessage` function
 // to actually send the message
+
 function sendMessage(value) {
   Chat.sendMessage({
     sender: username,
@@ -79,49 +74,135 @@ function sendMessage(value) {
 
 // This map of color values makes it easy
 // for us to interpret the messages we receive
-var colorValues = {
-  0: 'blue',
-  1: 'red',
-  2: 'purple',
-  3: 'yellow',
-  4: 'cyan',
-  5: 'turquoise',
-  6: 'green',
-  7: 'navy',
-  8: 'fuchsia',
-  9: 'tan',
-  10: 'ochre',
-  11: 'beige',
-  12: 'pink'
+
+
+var phraseValues = {
+  0: 'zero',
+  1: 'one',
+  2: 'two',
+  3: 'three',
+  4: 'four',
+  5: 'five',
+  6: 'six',
+  7: 'seven',
+  8: 'eight',
+  9: 'nine',
+  10: 'ten',
+  11: 'eleven',
+  12: 'twelve'
+
 };
 
 // And here's where we actually handle incoming messages
 // For each message we get, we create a new element, label
 // it with the message sender's name, and assign classes
 // based on its sender and value
+
 Chat.onMessage(function (data) {
   // Create the message element
+
   var divsize = ((Math.random()*100) + 50);
   var message = $('<div></div>');
+
+  if (data.value == 0) {
+  	var message = $('<a>This is a phrase 0</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 0');
+    	window.speechSynthesis.speak(msg);
+  }
+  if (data.value == 1) {
+  	var message = $('<a>This is a phrase 1</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 1');
+    	window.speechSynthesis.speak(msg);
+  }
+
+   if (data.value == 2) {
+  	var message = $('<a>This is a phrase 2</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 2');
+    	window.speechSynthesis.speak(msg);
+}
+  if (data.value == 3) {
+  	var message = $('<a>This is a phrase 3</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 3');
+    	window.speechSynthesis.speak(msg);
+}
+    if (data.value == 4) {
+  	var message = $('<a>This is a phrase 4</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 4');
+    	window.speechSynthesis.speak(msg);
+}
+  if (data.value == 5) {
+  	var message = $('<a>This is a phrase 5</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 5');
+    	window.speechSynthesis.speak(msg);
+}
+   if (data.value == 6) {
+  	var message = $('<a>This is a phrase 6</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 6');
+    	window.speechSynthesis.speak(msg);
+}
+  if (data.value == 7) {
+  	var message = $('<a>This is a phrase 7</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 7');
+    	window.speechSynthesis.speak(msg);
+  }
+    if (data.value == 8) {
+  	var message = $('<a>This is a phrase 8</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 8');
+    	window.speechSynthesis.speak(msg);
+}
+  if (data.value == 9) {
+  	var message = $('<a>This is a phrase 9</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 9');
+    	window.speechSynthesis.speak(msg);
+}
+    if (data.value == 10) {
+  	var message = $('<a>This is a phrase 10</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 10');
+    	window.speechSynthesis.speak(msg);
+}
+  if (data.value == 11) {
+  	var message = $('<a>This is a phrase 11</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 11');
+    	window.speechSynthesis.speak(msg);
+}
+   if (data.value == 12) {
+  	var message = $('<a>This is a phrase 12</a>');
+  	$(message).addClass('message');
+  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 12');
+    	window.speechSynthesis.speak(msg);
+  }
   $(message).addClass('message');
 
-var posx = (Math.random() * ($(document).width() - divsize));
-var posy = (Math.random() * ($(document).height() - divsize));
+	var posx = (Math.random() * ($('iframe').width() - 100));
+	var posy = (Math.random() * ($('iframe').height() - 100));
 
-$(message).css({
-    'position':'absolute',
-    'left':posx+'px',
-    'top':posy+'px',
-    'display':'none'
-}).appendTo( 'body' ).fadeIn(80);
+	$(message).css({
+	    'position':'absolute',
+	    'left':posx+'px',
+	    'top':posy+'px',
+	    'display':'none'
+	}).appendTo( 'body' ).fadeIn(80);
 
-$(message).delay( 10000 ).fadeOut(2000);
 
+	$(message).delay( 10000 ).fadeOut(2000);
 
   // Here's where we assign the color class. We use the
   // message's value to pull a color from our map of 
   // colors above
   $(message).addClass(colorValues[data.value]);
+
 
   // If the message is from the current user, give it a
   // special class
@@ -134,32 +215,15 @@ $(message).delay( 10000 ).fadeOut(2000);
   $(messageLabel).html(data.sender);
 
   // Append label to the message
-  $(message).append(messageLabel);
+  $(message).append();
+
+
 
   // Append message to the container on the page
   $('.message-container').append(message);
 });
 
-// This is where we handle changes in active user count.
-// We're going to lighten the background based on the number
-// of users on the page
-Chat.onUserCountChange(function (currentCount) {
-  // We'll say that maximum lightness happens at 20 users,
-  // so we'll treat all counts greater than 20 the same as 20
-  if (currentCount > 20) {
-    currentCount = 20;
-  }
-
-  // How close we are to twenty users determines the lightness.
-  // It's a percentage so we multiply by 100.
-  var lightness = Math.round((currentCount / 20) * 100);
-
-  // Actually set the background color. HSL is often the easiest
-  // color format to use when modifying color dynamically
-  $('body').css({
-    backgroundColor: 'hsl(0,0%,' + lightness + '%)'
-  });
-  var sites = [
+	var sites = [
 	'http://fontsinuse.com/typefaces/57/graphik',
 	'http://www.w3schools.com/jquery/eff_fadeout.asp',
 	];
@@ -167,9 +231,12 @@ Chat.onUserCountChange(function (currentCount) {
 	var changeSite = function() {
 		var url = sites[Math.floor(Math.random() * sites.length)];
 		$('iframe').attr('src',url);
-}
-	window.setInterval(changeSite, 50000);
-		 });
+		console.log("change site");
+		
+	}
+
+	changeSite();
+	window.setInterval(changeSite, 10000);
 
 </script>
 
