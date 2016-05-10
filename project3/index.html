@@ -2,16 +2,10 @@
 <head>	
   <link rel="stylesheet" href="main.css">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-jwidth">
 </head>
 
 <body>
-  <div class="username-form">
-    <label>Enter a username to begin</label>
-    <input type="text" class="username-input">
-    <input class="submit-button" type="submit" value="submit">
-  </div>
-
   <div class="message-container"></div>
   <iframe frameBorder="0" src=""></iframe>
 
@@ -22,14 +16,15 @@
 <script id="jsbin-javascript">
 
 var username;
-// When the user clicks the submit button, we want to save the 
+// When the user clicks the submit button, we want to save the 0
 // username they entered, hide the form, and show the color input
-$('.submit-button').click(function (e) {
-  username = $('.username-input').val();
-
-  $('.username-form').addClass('is-hidden');
-  $('.color-input').removeClass('is-hidden');
-});
+function randomString(length, chars) {
+    
+    for (var i = length; i > 0; --i) username += chars[Math.round(Math.random() * (chars.length - 1))];
+    return username;
+}
+// document.write(randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'));
+randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
 
 	Mousetrap.bind(['a', 'e', 'j', '1'], 
@@ -72,27 +67,6 @@ function sendMessage(value) {
   });
 }
 
-// This map of color values makes it easy
-// for us to interpret the messages we receive
-
-
-var phraseValues = {
-  0: 'zero',
-  1: 'one',
-  2: 'two',
-  3: 'three',
-  4: 'four',
-  5: 'five',
-  6: 'six',
-  7: 'seven',
-  8: 'eight',
-  9: 'nine',
-  10: 'ten',
-  11: 'eleven',
-  12: 'twelve'
-
-};
-
 // And here's where we actually handle incoming messages
 // For each message we get, we create a new element, label
 // it with the message sender's name, and assign classes
@@ -105,82 +79,82 @@ Chat.onMessage(function (data) {
   var message = $('<div></div>');
 
   if (data.value == 0) {
-  	var message = $('<a>This is a phrase 0</a>');
+  	var message = $('<a>NOW THATS WHAT I CALL FASHION!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 0');
+  	 	var msg = new SpeechSynthesisUtterance('NOW THATS WHAT I CALL FASHION!');
     	window.speechSynthesis.speak(msg);
   }
   if (data.value == 1) {
-  	var message = $('<a>This is a phrase 1</a>');
+  	var message = $('<a>TOTALLY WORTH THE MONEY!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 1');
+  	 	var msg = new SpeechSynthesisUtterance('TOTALLY WORTH THE MONEY!');
     	window.speechSynthesis.speak(msg);
   }
 
    if (data.value == 2) {
-  	var message = $('<a>This is a phrase 2</a>');
+  	var message = $('<a>DOPE! TRILL! DOPE! TRILL!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 2');
+  	 	var msg = new SpeechSynthesisUtterance('DOPE! TRILL! DOPE! TRILL!');
     	window.speechSynthesis.speak(msg);
 }
   if (data.value == 3) {
-  	var message = $('<a>This is a phrase 3</a>');
+  	var message = $('<a>QUALITY CLOTHING!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 3');
+  	 	var msg = new SpeechSynthesisUtterance('QUALITY CLOTHING!');
     	window.speechSynthesis.speak(msg);
 }
     if (data.value == 4) {
-  	var message = $('<a>This is a phrase 4</a>');
+  	var message = $('<a>ALL I CARE IS THAT PEOPLE SEE THE WORD SUPREME!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 4');
+  	 	var msg = new SpeechSynthesisUtterance('ALL I CARE IS THAT PEOPLE SEE THE WORD SUPREME!');
     	window.speechSynthesis.speak(msg);
 }
   if (data.value == 5) {
-  	var message = $('<a>This is a phrase 5</a>');
+  	var message = $('<a>I FEEL SO ACCEPTED BY SOCIETY WHEN I WEAR SUPREME!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 5');
+  	 	var msg = new SpeechSynthesisUtterance('I FEEL SO ACCEPTED BY SOCIETY WHEN I WEAR SUPREME!');
     	window.speechSynthesis.speak(msg);
 }
    if (data.value == 6) {
-  	var message = $('<a>This is a phrase 6</a>');
+  	var message = $('<a>I WAITED IN LINE FOR EIGHT HOURS TO BUY A STICKER!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 6');
+  	 	var msg = new SpeechSynthesisUtterance('I WAITED IN LINE FOR EIGHT HOURS TO BUY A STICKER!');
     	window.speechSynthesis.speak(msg);
 }
   if (data.value == 7) {
-  	var message = $('<a>This is a phrase 7</a>');
+  	var message = $('<a>TAKE MY MONEY!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 7');
+  	 	var msg = new SpeechSynthesisUtterance('TAKE MY MONEY!');
     	window.speechSynthesis.speak(msg);
   }
     if (data.value == 8) {
-  	var message = $('<a>This is a phrase 8</a>');
+  	var message = $('<a>I GOTTA COP THIS!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 8');
+  	 	var msg = new SpeechSynthesisUtterance('I GOTTA COP THIS!');
     	window.speechSynthesis.speak(msg);
 }
   if (data.value == 9) {
-  	var message = $('<a>This is a phrase 9</a>');
+  	var message = $('<a>SUPREME GRAPHICS ARE SO ORIGINAL!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 9');
+  	 	var msg = new SpeechSynthesisUtterance('SUPREME GRAPHICS ARE SO ORIGINAL!');
     	window.speechSynthesis.speak(msg);
 }
     if (data.value == 10) {
-  	var message = $('<a>This is a phrase 10</a>');
+  	var message = $('<a>I ONLY WEAR SUPREME. ITS THE BEST!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 10');
+  	 	var msg = new SpeechSynthesisUtterance('I ONLY WEAR SUPREME ITS THE BEST!');
     	window.speechSynthesis.speak(msg);
 }
   if (data.value == 11) {
-  	var message = $('<a>This is a phrase 11</a>');
+  	var message = $('<a>SUPREME GETS IT!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 11');
+  	 	var msg = new SpeechSynthesisUtterance('SUPREME GETS IT!');
     	window.speechSynthesis.speak(msg);
 }
    if (data.value == 12) {
-  	var message = $('<a>This is a phrase 12</a>');
+  	var message = $('<a>I NEED IT!</a>');
   	$(message).addClass('message');
-  	 	var msg = new SpeechSynthesisUtterance('This is a phrase 12');
+  	 	var msg = new SpeechSynthesisUtterance('I NEED IT!');
     	window.speechSynthesis.speak(msg);
   }
   $(message).addClass('message');
@@ -196,27 +170,7 @@ Chat.onMessage(function (data) {
 	}).appendTo( 'body' ).fadeIn(80);
 
 
-	$(message).delay( 10000 ).fadeOut(2000);
-
-  // Here's where we assign the color class. We use the
-  // message's value to pull a color from our map of 
-  // colors above
-  $(message).addClass(colorValues[data.value]);
-
-
-  // If the message is from the current user, give it a
-  // special class
-  if (data.sender == username) {
-    $(message).addClass('from-current-user');
-  }
-
-  // Create the label element and set its html
-  var messageLabel = $('<div></div>');
-  $(messageLabel).html(data.sender);
-
-  // Append label to the message
-  $(message).append();
-
+	$(message).delay( 15000 ).fadeOut(2000);
 
 
   // Append message to the container on the page
@@ -224,8 +178,12 @@ Chat.onMessage(function (data) {
 });
 
 	var sites = [
-	'http://fontsinuse.com/typefaces/57/graphik',
-	'http://www.w3schools.com/jquery/eff_fadeout.asp',
+	'http://www.supremenewyork.com/shop/all',
+  'http://d17ol771963kd3.cloudfront.net/114854/zo/y_BAmc9V54o.jpg',
+  'https://s-media-cache-ak0.pinimg.com/736x/d1/26/71/d12671ec87af69a4217f99e4ada7b049.jpg',
+  'http://supremestock.bigcartel.com/',
+  'http://strictlysupreme.com/7/lounge',
+  'http://www.stay246.jp/SHOP/569178/t01/list3.html',
 	];
 
 	var changeSite = function() {
@@ -236,7 +194,7 @@ Chat.onMessage(function (data) {
 	}
 
 	changeSite();
-	window.setInterval(changeSite, 10000);
+	window.setInterval(changeSite, 5000);
 
 </script>
 
