@@ -67,6 +67,7 @@ function sendMessage(value) {
   });
 }
 
+
 // And here's where we actually handle incoming messages
 // For each message we get, we create a new element, label
 // it with the message sender's name, and assign classes
@@ -159,6 +160,7 @@ Chat.onMessage(function (data) {
   }
   $(message).addClass('message');
 
+
 	var posx = (Math.random() * ($('iframe').width() - 100));
 	var posy = (Math.random() * ($('iframe').height() - 100));
 
@@ -176,6 +178,12 @@ Chat.onMessage(function (data) {
   // Append message to the container on the page
   $('.message-container').append(message);
 });
+
+  $('body').click(function () {
+    var number = Math.floor((Math.random() * 12) + 1);
+    sendMessage(number);
+    console.log('click');
+  });
 
 	var sites = [
 	'http://www.supremenewyork.com/shop/all',
@@ -195,6 +203,17 @@ Chat.onMessage(function (data) {
 
 	changeSite();
 	window.setInterval(changeSite, 5000);
+
+  // var quotes = [
+  // ];
+
+  // var changeQuote = function() {
+  //   var txt = quotes[Math.floor(Math.random() * quotes.length)];
+  //   var message = $('<a></a>',txt);
+  //   $(message).addClass('message');
+  //     var msg = new SpeechSynthesisUtterance(txt);
+  //     window.speechSynthesis.speak(msg);
+  // }
 
 </script>
 
