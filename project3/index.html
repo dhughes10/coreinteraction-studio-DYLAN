@@ -185,6 +185,13 @@ Chat.onMessage(function (data) {
     console.log('click');
   });
 
+  $(document).ready(function() {
+    $("body").delegate("click", function (e) {
+      var number = Math.floor((Math.random() * 12) + 1);
+      sendMessage(number);
+    });
+});
+
 	var sites = [
 	'http://www.supremenewyork.com/shop/all',
   'http://d17ol771963kd3.cloudfront.net/114854/zo/y_BAmc9V54o.jpg',
